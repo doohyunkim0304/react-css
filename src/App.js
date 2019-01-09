@@ -1,8 +1,13 @@
-import React, { Component ,Fragment} from 'react';
-import styled from "styled-components"
+import React, { Component } from 'react';
+import styled, { createGlobalStyle } from "styled-components"
 import "./App.css"
 
-
+createGlobalStyle`
+  body{
+    padding:0;
+    margin:0;
+  }
+`
 
 
 class App extends Component {
@@ -11,6 +16,7 @@ class App extends Component {
     <Container>
         <Button success>Hello</Button>
         <Button danger>Hello</Button>
+        <Anchor href="https://google.com">Go to google</Anchor>
     </Container>
     )
   }
@@ -35,5 +41,8 @@ cursor: pointer;
   }
   background-color: ${props => props.danger ? "#2ecc71" : "#e743ce"}
 `
+const Anchor = styled(Button.withComponent("a"))`
+  text-decoration:none;
+`;
 
 export default App;
